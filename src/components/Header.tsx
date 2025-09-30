@@ -1,4 +1,4 @@
-type Section = 'about' | 'projects' | 'contact' | 'skills';
+type Section = 'about' | 'projects' | 'skills';
 
 interface HeaderProps {
   activeSection: Section;
@@ -40,47 +40,31 @@ function NavItem({
 
 export function Header({ activeSection, onSectionChange }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-50 bg-gray-800 shadow-lg border-b border-gray-600">
-      <h1 className="text-xl md:text-2xl lg:text-3xl text-center font-bold  bg-clip-text py-3">
-        PORTAFOLIO
-      </h1>
-      <div className="flex justify-center py-4">
-        <div className="flex items-center justify-center space-x-2 md:space-x-4 lg:space-x-8">
-          <nav className=" md:flex items-center space-x-8">
-            <NavItem
-              section="about"
-              activeSection={activeSection}
-              onSectionChange={onSectionChange}
-            >
-              About me
-            </NavItem>
+    <header className="sticky top-4 z-150 bg-green-800 shadow-lg mb-8 rounded-lg">
+      <nav className="flex items-center justify-center py-6  gap-8">
+        <NavItem
+          section="about"
+          activeSection={activeSection}
+          onSectionChange={onSectionChange}
+        >
+          About me
+        </NavItem>
 
-            <NavItem
-              section="projects"
-              activeSection={activeSection}
-              onSectionChange={onSectionChange}
-            >
-              Projects
-            </NavItem>
-
-            <NavItem
-              section="contact"
-              activeSection={activeSection}
-              onSectionChange={onSectionChange}
-            >
-              Contact
-            </NavItem>
-
-            <NavItem
-              section="skills"
-              activeSection={activeSection}
-              onSectionChange={onSectionChange}
-            >
-              Skills
-            </NavItem>
-          </nav>
-        </div>
-      </div>
+        <NavItem
+          section="projects"
+          activeSection={activeSection}
+          onSectionChange={onSectionChange}
+        >
+          Projects
+        </NavItem>
+        <NavItem
+          section="skills"
+          activeSection={activeSection}
+          onSectionChange={onSectionChange}
+        >
+          Skills
+        </NavItem>
+      </nav>
     </header>
   );
 }
