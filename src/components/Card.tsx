@@ -5,6 +5,7 @@ interface CardProps {
   image?: string;
   video?: string;
   imageAlt?: string;
+  technologies?: string[];
 }
 
 export function Card({
@@ -14,12 +15,13 @@ export function Card({
   image,
   video,
   imageAlt,
+  technologies,
 }: CardProps) {
   return (
-    <div className="mx-4 text-center p-6 rounded-xl hover:bg-blue-600/30 transition-colors duration-300 border border-blue-500/50">
+    <div className="w-80 h-96 mx-4 text-center p-6 rounded-xl hover:bg-blue-600/30 transition-colors duration-300 border border-blue-500/50 background-color:red">
       {/* Media content - image or video */}
       {image && (
-        <div className="mb-4 overflow-hidden rounded-lg">
+        <div className="mb-4 overflow-hidden rounded-lg ">
           <img
             src={image}
             alt={imageAlt || label}
@@ -48,6 +50,19 @@ export function Card({
 
       <h3 className="text-lg font-bold text-white mb-2">{label}</h3>
       <p className="text-blue-300 text-sm font-medium">{value}</p>
+      {technologies && (
+        <div className="mt-4 flex flex-row justify-center flex-wrap px-10">
+          {technologies.map((tech, index) => (
+            <span
+              key={index}
+              className="text-blue-300 text-sm font-medium border px-2 py-1 rounded mx-2 my-1"
+              style={{ margin: '4px' }}
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

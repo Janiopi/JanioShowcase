@@ -1,39 +1,39 @@
+import { useState } from 'react';
+import { Header } from './components/_index';
+import { AboutMe, Projects, Skills } from './sections/_index';
+import './App.css';
 
-import { useState } from 'react'
-import { Header } from './components/_index'
-import { AboutMe, Contact, Projects, Skills } from './sections/_index'
-import './App.css'
-
-type Section = 'about' | 'projects' | 'contact' | 'skills'
+type Section = 'about' | 'projects' | 'skills';
 
 function App() {
-  const [activeSection, setActiveSection] = useState<Section>('about')
+  const [activeSection, setActiveSection] = useState<Section>('about');
 
   const renderSection = () => {
     switch (activeSection) {
       case 'about':
-        return <AboutMe />
+        return <AboutMe />;
       case 'projects':
-        return <Projects />
-      case 'contact':
-        return <Contact />
+        return <Projects />;
       case 'skills':
-        return <Skills />
+        return <Skills />;
       default:
-        return <AboutMe />
+        return <AboutMe />;
     }
-  }
+  };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <Header activeSection={activeSection} onSectionChange={setActiveSection} />
+    <div className="min-h-screen bg-gray-100 text-white">
+      <Header
+        activeSection={activeSection}
+        onSectionChange={setActiveSection}
+      />
       <main className="container mx-auto px-4 py-8">
         <div className="transition-all duration-500 ease-in-out">
           {renderSection()}
         </div>
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
